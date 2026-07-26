@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #047857; /* Deep Premium Emerald */
+    --secondary: #B45309; /* Luxury Amber Gold */
+    --accent: #F59E0B; /* Bright Gold Accent */
+    --ai-blue: #3B82F6;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --bg-light: #F7FAF9; /* Soft botanical off-white */
+    /* Safe Area Environment Variables for notched phones */
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-light);
+    color: #0F172A;
+    overflow-x: hidden;
+    /* Native-like smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent overscroll bounce background flash */
+    overscroll-behavior: none;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height — handles iOS keyboard */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Mobile Touch UI Improvements ────────────────────────────── */
+
+  /* Remove blue tap highlight on all elements (native app feel) */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  /* Re-enable text selection for form inputs & content */
+  input, textarea, select, p, h1, h2, h3, h4, h5, h6, span {
+    -webkit-touch-callout: default;
+  }
+  input, textarea, select {
+    user-select: text;
+  }
+}
+
+/* Glassmorphism & Custom Design Utility Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+}
+
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.dark .glass-navbar {
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+.glow-emerald {
+  box-shadow: 0 10px 30px -5px rgba(22, 163, 74, 0.3);
+}
+
+.glow-orange {
+  box-shadow: 0 10px 30px -5px rgba(255, 107, 53, 0.35);
+}
+
+.glow-blue {
+  box-shadow: 0 10px 30px -5px rgba(37, 99, 235, 0.35);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ── Safe Area Utilities (for iPhone notch / Dynamic Island / Android punch-hole) ── */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.safe-left {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+.safe-right {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+.safe-x {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* Extend header to fill status bar area on notched phones */
+.header-safe {
+  padding-top: max(1rem, env(safe-area-inset-top, 0px));
+}
+
+/* Bottom nav safe area — sits above home indicator on iPhone */
+.bottom-nav-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+}
+
+/* ── Native-like Scroll Momentum ── */
+.native-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+}
+
+/* ── Touch Target Size Compliance (WCAG 2.5.8 / Apple HIG — 44pt minimum) ── */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Mobile Card Interactions ── */
+@media (hover: none) and (pointer: coarse) {
+  /* Reduce hover delays on touchscreens */
+  * {
+    transition-duration: 0.1s;
+  }
+  /* Stronger active state feedback for touch */
+  button:active, a:active {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+}
+
+/* ── Status Bar Dark Mode (Android WebView) ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}

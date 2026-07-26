@@ -1,0 +1,34 @@
+{
+  "appId": "com.wellora.ai",
+  "appName": "Wellora AI",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "scrollEnabled": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#07130F",
+      "showSpinner": false,
+      "spinnerColor": "#10b981"
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#07130F"
+    },
+    "Keyboard": {
+      "resize": "body",
+      "style": "dark",
+      "resizeOnFullScreen": true
+    }
+  }
+}

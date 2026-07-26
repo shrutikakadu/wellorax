@@ -1,0 +1,66 @@
+================================================================
+  WELLORA — HOW TO START
+================================================================
+
+STEP 1: Open PowerShell and go to the project root:
+  cd "C:\Users\himan\Desktop\Projects\NutriFlow AI"
+
+----------------------------------------------------------------
+STEP 2: Start BACKEND (open a new PowerShell window)
+  cd backend
+  npm run dev
+
+  Backend runs at: http://localhost:3001
+  Health check:    http://localhost:3001/api/health
+
+----------------------------------------------------------------
+STEP 3: Start FRONTEND (open another PowerShell window)
+  cd frontend
+  npm run dev
+
+  Frontend runs at: http://localhost:5173
+  Open this in Chrome to see the app!
+
+----------------------------------------------------------------
+DEMO LOGIN CREDENTIALS:
+  Email:    priya@wellora.ai
+  Password: password123
+
+  Admin:    admin@wellora.ai
+  Password: password123
+
+----------------------------------------------------------------
+QUICK START (starts BOTH at once):
+  cd "C:\Users\himan\Desktop\Projects\NutriFlow AI"
+  powershell -ExecutionPolicy Bypass -File "start.ps1"
+
+----------------------------------------------------------------
+IMPORTANT NOTES:
+  - Always start BACKEND before FRONTEND
+  - "cd frontend" only works from:
+    C:\Users\himan\Desktop\Projects\NutriFlow AI
+  - "cd backend" only works from:
+    C:\Users\himan\Desktop\Projects\NutriFlow AI
+  - Do NOT cd into any sub-platform folder first!
+
+----------------------------------------------------------------
+API ENDPOINTS (Backend):
+  POST   /api/auth/register
+  POST   /api/auth/login
+  GET    /api/auth/me
+  GET    /api/meals
+  GET    /api/restaurants
+  POST   /api/orders
+  GET    /api/orders
+  GET    /api/nutrition/daily
+  POST   /api/nutrition/log
+  GET    /api/grocery/products
+  GET    /api/doctors
+  POST   /api/doctors/appointments
+  POST   /api/ai/chat
+  GET    /api/health-profile
+  PUT    /api/health-profile
+  POST   /api/meal-plans/generate
+  GET    /api/meal-plans/weekly
+
+================================================================
